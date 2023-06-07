@@ -42,23 +42,23 @@ public class SudokuSolver {
     private static boolean solveSudoku(int[][] sudokuTable) {
         int row = -1;
         int col = -1;
-        boolean isEmpty = true;
+        boolean isEmpty = false;
 
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
                 if (sudokuTable[i][j] == 0) {
                     row = i;
                     col = j;
-                    isEmpty = false;
+                    isEmpty = true;
                     break;
                 }
             }
-            if (!isEmpty) {
+            if (isEmpty) {
                 break;
             }
         }
 
-        if (isEmpty) {
+        if (!isEmpty) {
             return true;
         }
 
